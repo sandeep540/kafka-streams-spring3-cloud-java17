@@ -1,0 +1,24 @@
+spring.cloud.stream:
+  function:
+    definition: dataProcessor
+  bindings:
+    dataProcessor-in-0:
+      destination: input-topic
+      consumer:
+        partition-count: 5
+    dataProcessor-out-0:
+      destination: enriched-topic
+      producer:
+        partition-count: 5
+
+  kafka.binder:
+    brokers: localhost:19092,localhost:29092,localhost:39092
+
+management:
+  health:
+    binders:
+      enabled: true
+
+server:
+  port: 9000
+
