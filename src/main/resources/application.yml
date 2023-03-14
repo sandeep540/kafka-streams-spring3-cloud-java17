@@ -13,7 +13,7 @@ spring.cloud.stream:
 
   kafka.binder:
     brokers: localhost:19092,localhost:29092,localhost:39092
-
+    min-partition-count: 5
 management:
   health:
     binders:
